@@ -1,0 +1,26 @@
+<resources>
+    <!-- Textos simples -->
+    <string name="app_name">DAMFlix</string>
+    <string name="btn_accept">Aceptar</string>
+
+    <!-- Película -->
+    <string name="desc_poster">Póster de la película Inception</string>
+    <string name="movie_name">Origen (Inception)</string>
+    <string name="movie_details">Christopher Nolan • 2010</string>
+
+    <!-- Usuario -->
+    <string name="avatar_desc">Avatar del usuario</string>
+    <string name="user_name_label">Miguel</string>
+    <string name="user_rol">Crítico de Cine</string>
+    <string name="user_stadistics">42 Películas Vistas • 12 Reseñas</string>
+
+    <!-- Caracteres especiales y escapado -->
+    <string name="label_user_profile">User\'s Profile</string>
+    <string name="terms_and_conditions">Términos &amp; Condiciones</string>
+
+    <!-- Parámetros dinámicos -->
+    <string name="welcome_user">Hola %1$s, tienes %2$d películas pendientes.</string>
+
+    <!-- Constantes no traducibles -->
+    <string name="api_brand_name" translatable="false">DAMFlix Engine</string>
+</resources>
