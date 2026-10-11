@@ -67,6 +67,7 @@ fun RegisterMovieForm() {
         onClick = { /* Guardar película */ },
         enabled = titulo.isNotBlank() && director.isNotBlank(),
         modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 8.dp)
+        //                                           izquierda                  derecha
     ) {
         Text(text = stringResource(id = R.string.save_movie))
     }
