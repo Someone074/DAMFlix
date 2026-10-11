@@ -8,6 +8,13 @@
     <string name="movie_name">Origen (Inception)</string>
     <string name="movie_details">Christopher Nolan • 2010</string>
 
+    <!-- Formulario Película -->
+    <string name="title_info">Título de la Película</string>
+    <string name="director_info">Director/a de la Película</string>
+    <string name="year_release_info">Año de estreno de la Película</string>
+    <string name="watched_movie">Ya he visto esta película</string>
+    <string name="save_movie">Ya he visto esta película</string>
+
     <!-- Usuario -->
     <string name="avatar_desc">Avatar del usuario</string>
     <string name="user_name_label">Miguel</string>
