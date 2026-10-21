@@ -15,6 +15,10 @@
     <string name="watched_movie">Ya he visto esta película</string>
     <string name="save_movie">Ya he visto esta película</string>
 
+    <!-- Catálogo de Películas -->
+    <string name="name_catalog">DAMFlix - Catálogo</string>
+    <string name="text_favorite">Favorito</string>
+
     <!-- Usuario -->
     <string name="avatar_desc">Avatar del usuario</string>
     <string name="user_name_label">Miguel</string>
