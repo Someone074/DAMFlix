@@ -35,6 +35,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.damflix.ui.theme.DAMFlixTheme
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 
 class MovieCatalogActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,29 +65,48 @@ fun PantallaCatalogoDAMFlix() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = stringResource(id = R.string.name_catalog)) },
+                title = { Column {
+                    Text(
+                        text = stringResource(id = R.string.name_catalog1),
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Text(
+                        text = stringResource(id = R.string.name_catalog2),
+                        color = Color.White,
+                        fontSize = 40.sp, // Para cambiar el tamaño de la letra
+                        fontWeight = FontWeight.Bold, // Negrita
+                        textAlign = TextAlign.Center, // Centrado
+                        // El título necesita ocupar el ancho disponible para que se note el centrado
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                } },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
-                )
+                ),
+                expandedHeight = 110.dp // Agranda la TopBar para que quepa el doble título
             )
         }
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
             val peliculas = remember {
                 mutableStateListOf(
-                    Pelicula(id = 1, titulo = "Inception", esFavorita = true),
-                    Pelicula(id = 2, titulo = "The Dark Knight", esFavorita = false),
-                    Pelicula(id = 3, titulo = "Interstellar", esFavorita = true),
-                    Pelicula(id = 4, titulo = "Pulp Fiction", esFavorita = false)
+                    Pelicula(id = 1, titulo = "Origen (Inception)", detalles = "Christopher Nolan • 2010", esFavorita = true),
+                    Pelicula(id = 2, titulo = "El Caballero Oscuro (The Dark Knight)", detalles = "Christopher Nolan • 2008", esFavorita = false),
+                    Pelicula(id = 3, titulo = "Alicia y El País de Las Maravillas", detalles = "Tim Burton • 2010", esFavorita = true),
+                    Pelicula(id = 4, titulo = "La Cuarta Fase", detalles = "Olatunde Osunsanmi • 2009", esFavorita = false)
                 )
             }
 
             ListaPeliculas(
                 peliculas = peliculas,
-                onToggleFavorito = { idSeleccionado ->
-                    val indice = peliculas.indexOfFirst { it.id == idSeleccionado }
+                onToggleFavorito = { idSeleccionado -> // ID de la película favorita seleccionada
+                    val indice = peliculas.indexOfFirst { it.id == idSeleccionado } //
                     if (indice != -1) {
-                        val peliculaActual = peliculas[indice]
+                        val peliculaActual = peliculas[indice] // Guardado de la película de ese ID
+                        // Si la película antes no era favorita se convierte en favorita (y viceversa)
                         peliculas[indice] = peliculaActual.copy(esFavorita = !peliculaActual.esFavorita)
                     }
                 }
@@ -93,13 +115,13 @@ fun PantallaCatalogoDAMFlix() {
     }
 }
 
-data class Pelicula (val id: Int = 0, val titulo: String = "", val esFavorita: Boolean)
+data class Pelicula (val id: Int = 0, val titulo: String = "", val detalles: String = "",  val esFavorita: Boolean)
 
 @Composable
 fun ListaPeliculas(peliculas: List<Pelicula>, onToggleFavorito: (Int) -> Unit) {
     LazyColumn(
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        contentPadding = PaddingValues(19.dp),
+        verticalArrangement = Arrangement.spacedBy(15.dp)
     ) {
         items(items = peliculas, key = { p -> p.id }) { pelicula ->
             Card(modifier = Modifier.fillMaxWidth()) {
@@ -107,7 +129,12 @@ fun ListaPeliculas(peliculas: List<Pelicula>, onToggleFavorito: (Int) -> Unit) {
                     modifier = Modifier.padding(12.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(text = pelicula.titulo, modifier = Modifier.weight(1f))
+                    // El Modifier separa la distancia entre la información de la película y del botón de "Favorito"
+                    Column (modifier = Modifier.weight(1f)) {
+                        Text(text = pelicula.titulo, style = MaterialTheme.typography.titleMedium)
+                        Text(text = pelicula.detalles, style = MaterialTheme.typography.bodySmall)
+                    }
+                    Modifier.weight(1f)
                     IconButton(onClick = { onToggleFavorito(pelicula.id) }) {
                         Icon(
                             imageVector = if (pelicula.esFavorita) Icons.Default.Favorite else Icons.Default.FavoriteBorder,

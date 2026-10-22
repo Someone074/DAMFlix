@@ -16,7 +16,8 @@
     <string name="save_movie">Ya he visto esta película</string>
 
     <!-- Catálogo de Películas -->
-    <string name="name_catalog">DAMFlix - Catálogo</string>
+    <string name="name_catalog1">DAMFlix</string>
+    <string name="name_catalog2">Catálogo</string>
     <string name="text_favorite">Favorito</string>
 
     <!-- Usuario -->
