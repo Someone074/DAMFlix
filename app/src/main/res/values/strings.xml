@@ -19,6 +19,14 @@
     <string name="name_catalog1">DAMFlix</string>
     <string name="name_catalog2">Catálogo</string>
     <string name="text_favorite">Favorito</string>
+    <string name="catalog_movie1_name">Origen (Inception)</string>
+    <string name="catalog_movie1_details">Christopher Nolan • 2010</string>
+    <string name="catalog_movie2_name">El Caballero Oscuro (The Dark Knight)</string>
+    <string name="catalog_movie2_details">Christopher Nolan • 2008</string>
+    <string name="catalog_movie3_name">Alicia y El País de Las Maravillas</string>
+    <string name="catalog_movie3_details">Tim Burton • 2010</string>
+    <string name="catalog_movie4_name">La Cuarta Fase</string>
+    <string name="catalog_movie4_details">Olatunde Osunsanmi • 2009</string>
 
     <!-- Usuario -->
     <string name="avatar_desc">Avatar del usuario</string>

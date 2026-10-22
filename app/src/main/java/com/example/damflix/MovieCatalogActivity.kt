@@ -93,10 +93,10 @@ fun PantallaCatalogoDAMFlix() {
         Box(modifier = Modifier.padding(innerPadding)) {
             val peliculas = remember {
                 mutableStateListOf(
-                    Pelicula(id = 1, titulo = "Origen (Inception)", detalles = "Christopher Nolan • 2010", esFavorita = true),
-                    Pelicula(id = 2, titulo = "El Caballero Oscuro (The Dark Knight)", detalles = "Christopher Nolan • 2008", esFavorita = false),
-                    Pelicula(id = 3, titulo = "Alicia y El País de Las Maravillas", detalles = "Tim Burton • 2010", esFavorita = true),
-                    Pelicula(id = 4, titulo = "La Cuarta Fase", detalles = "Olatunde Osunsanmi • 2009", esFavorita = false)
+                    Pelicula(id = 1, titulo = R.string.catalog_movie1_name, detalles = R.string.catalog_movie1_details, esFavorita = true),
+                    Pelicula(id = 2, titulo = R.string.catalog_movie2_name, detalles = R.string.catalog_movie2_details, esFavorita = false),
+                    Pelicula(id = 3, titulo = R.string.catalog_movie3_name, detalles = R.string.catalog_movie3_details, esFavorita = true),
+                    Pelicula(id = 4, titulo = R.string.catalog_movie4_name, detalles = R.string.catalog_movie4_details, esFavorita = false)
                 )
             }
 
@@ -115,7 +115,7 @@ fun PantallaCatalogoDAMFlix() {
     }
 }
 
-data class Pelicula (val id: Int = 0, val titulo: String = "", val detalles: String = "",  val esFavorita: Boolean)
+data class Pelicula (val id: Int = 0, val titulo: Int = 0, val detalles: Int = 0,  val esFavorita: Boolean)
 
 @Composable
 fun ListaPeliculas(peliculas: List<Pelicula>, onToggleFavorito: (Int) -> Unit) {
@@ -131,8 +131,8 @@ fun ListaPeliculas(peliculas: List<Pelicula>, onToggleFavorito: (Int) -> Unit) {
                 ) {
                     // El Modifier separa la distancia entre la información de la película y del botón de "Favorito"
                     Column (modifier = Modifier.weight(1f)) {
-                        Text(text = pelicula.titulo, style = MaterialTheme.typography.titleMedium)
-                        Text(text = pelicula.detalles, style = MaterialTheme.typography.bodySmall)
+                        Text(text = stringResource(id = pelicula.titulo), style = MaterialTheme.typography.titleMedium)
+                        Text(text = stringResource(id = pelicula.detalles), style = MaterialTheme.typography.bodySmall)
                     }
                     Modifier.weight(1f)
                     IconButton(onClick = { onToggleFavorito(pelicula.id) }) {
