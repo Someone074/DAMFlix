@@ -58,18 +58,24 @@ fun RegisterMovieForm() {
     CampoEntrada(director, { director = it }, R.string.director_info)
     CampoEntrada(year, { year = it }, R.string.year_release_info)
 
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 6.dp, end = 16.dp, bottom = 20.dp)
+    ) {
         Checkbox(checked = esVista, onCheckedChange = { esVista = it })
         Text(text = stringResource(id = R.string.watched_movie))
     }
 
-    Button(
-        onClick = { /* Guardar película */ },
-        enabled = titulo.isNotBlank() && director.isNotBlank(),
-        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 8.dp)
-        //                                           izquierda                  derecha
+    Column(  // Tamaño normal pero centrado
+        modifier = Modifier.fillMaxSize()
     ) {
-        Text(text = stringResource(id = R.string.save_movie))
+        Button(
+            onClick = { /* Guardar película */ },
+            enabled = titulo.isNotBlank() && director.isNotBlank(),
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
+            Text(text = stringResource(id = R.string.save_movie))
+        }
     }
 }
 
@@ -80,6 +86,6 @@ fun CampoEntrada(valor: String, onCambio: (String) -> Unit, etiqueta: Int) {
         onValueChange = onCambio,
         label = { Text(text = stringResource(id = etiqueta)) },
         singleLine = true,
-        modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 8.dp)
+        modifier = Modifier.fillMaxWidth().padding(start = 19.dp, top = 8.dp, end = 19.dp, bottom = 8.dp)
     )
 }
