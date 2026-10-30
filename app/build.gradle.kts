@@ -62,4 +62,8 @@ dependencies {
 
     // Librería oficial de navegación para Jetpack Compose
     implementation("androidx.navigation:navigation-compose:2.10.2")
+
+    // ViewModel e integración del ciclo de vida con Jetpack Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.11.0")
 }
