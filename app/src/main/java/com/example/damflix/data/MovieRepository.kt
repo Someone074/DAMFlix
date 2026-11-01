@@ -5,7 +5,7 @@ import com.example.damflix.model.Pelicula
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class PeliculaRepository(private val dbHelper: DAMFlixDbHelper) {
+class MovieRepository(private val dbHelper: DAMFlixDbHelper) {
 
     suspend fun obtenerTodas(): List<Pelicula> = withContext(Dispatchers.IO) {
         val lista = mutableListOf<Pelicula>()

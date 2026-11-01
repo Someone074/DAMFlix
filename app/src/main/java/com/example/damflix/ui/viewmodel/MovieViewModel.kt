@@ -2,14 +2,14 @@ package com.example.damflix.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.damflix.data.PeliculaRepository
+import com.example.damflix.data.MovieRepository
 import com.example.damflix.model.Pelicula
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class PeliculaViewModel(private val repository: PeliculaRepository) : ViewModel() {
+class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
 
     private val _listaPeliculas = MutableStateFlow<List<Pelicula>>(emptyList())
     val listaPeliculas: StateFlow<List<Pelicula>> = _listaPeliculas.asStateFlow()

@@ -1,5 +1,6 @@
 package com.example.damflix
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -37,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -48,6 +50,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.damflix.data.DAMFlixDbHelper
+import com.example.damflix.data.MovieRepository
+import com.example.damflix.ui.screens.MovieCatalog
+import com.example.damflix.ui.screens.RegisterMovieForm
+import com.example.damflix.ui.viewmodel.MovieViewModel
 import com.example.damflix.ui.theme.DAMFlixTheme
 
 class MainActivity : ComponentActivity() {
@@ -144,6 +151,7 @@ fun UserHeader() {
     }
 }
 
+@SuppressLint("ViewModelConstructorInComposable")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun StartScreen() {
@@ -201,6 +209,12 @@ fun StartScreen() {
             }
         }
     ) { innerPadding ->
+        val contexto = LocalContext.current
+
+        val dbHelper = DAMFlixDbHelper(contexto)
+        val repository = MovieRepository(dbHelper)
+        val viewModel = MovieViewModel(repository)
+
         NavHost(
             navController = navController,
             startDestination = Ruta.Inicio.path,
@@ -208,16 +222,12 @@ fun StartScreen() {
         ) {
             composable(Ruta.Listado.path) {
                 Column{
-                    // Agregación de cada pantalla por medio de un Composable de cada Activity.
-                    // No se agregan activities directamente (es un error).
-                    CatalogScreen()
+                    MovieCatalog(viewModel)
                 }
             }
             composable(Ruta.Inicio.path) {
                 Column{
-                    // Espacio pequeño justo debajo de la TopBar
                     Spacer(modifier = Modifier.height(12.dp))
-
                     UserHeader()
                     StaticMovie()
                 }
@@ -225,7 +235,7 @@ fun StartScreen() {
             composable(Ruta.Formulario.path) {
                 Column{
                     Spacer(modifier = Modifier.height(12.dp))
-                    RegisterMovieForm()
+                    RegisterMovieForm(viewModel)
                 }
             }
         }

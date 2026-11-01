@@ -11,10 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DAMFlix">
 
-        <!--  MainActivity: -->
-        <!--  Cambié el "exported" y moví el "intent-filter" para
-              visualizar esta activity en el emulador
-        -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -25,22 +21,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!--  MovieFormActivity: -->
-        <activity
-            android:name=".MovieFormActivity"
-            android:exported="false"
-            android:theme="@style/Theme.DAMFlix"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
-
-        <!--  MovieCatalogActivity: -->
-        <activity
-            android:name=".MovieCatalogActivity"
-            android:exported="true"
-            android:theme="@style/Theme.DAMFlix"
-            android:windowSoftInputMode="adjustResize">
         </activity>
     </application>
 
