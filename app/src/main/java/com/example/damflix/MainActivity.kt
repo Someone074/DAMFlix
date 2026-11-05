@@ -41,7 +41,7 @@ import com.example.damflix.model.DAMFlixDbHelper
 import com.example.damflix.model.MovieRepository
 import com.example.damflix.ui.screens.MovieCatalog
 import com.example.damflix.ui.screens.ProfileScreen
-import com.example.damflix.ui.screens.RegisterMovieForm
+import com.example.damflix.ui.screens.MovieForm
 import com.example.damflix.viewmodel.MovieViewModel
 import com.example.damflix.ui.theme.DAMFlixTheme
 
@@ -159,12 +159,12 @@ fun StartScreen() {
             }
             composable(Ruta.Inicio.path) {
                 Column{
-                    ProfileScreen()
+                    ProfileScreen(viewModel)
                 }
             }
             composable(Ruta.Formulario.path) {
                 Column{
-                    RegisterMovieForm(viewModel)
+                    MovieForm(viewModel)
                 }
             }
         }

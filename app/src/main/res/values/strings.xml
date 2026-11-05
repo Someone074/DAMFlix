@@ -7,7 +7,7 @@
     <string name="avatar_desc">Avatar del usuario</string>
     <string name="user_name_label">Miguel</string>
     <string name="user_rol">Crítico de Cine</string>
-    <string name="user_stadistics">42 Películas Vistas • 12 Reseñas</string>
+    <string name="user_stadistics">%1$d Vistas • %2$d Favoritas</string>
     <string name="desc_poster">Póster de la película Inception</string>
     <string name="movie_name">Origen (Inception)</string>
     <string name="movie_details">Christopher Nolan • 2010</string>

@@ -15,6 +15,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,11 +25,22 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.damflix.R
+import com.example.damflix.viewmodel.MovieViewModel
 
-@Preview
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(viewModel: MovieViewModel) {
+    // Consigue la lista de películas
+    val peliculas by viewModel.listaPeliculas.collectAsStateWithLifecycle()
+
+    // Cuenta las películas vistas
+    val nVistas = remember(peliculas) { peliculas.count { it.esVista } }
+
+    // Cuenta las películas favoritas
+    val nFavoritas = remember(peliculas) { peliculas.count { it.esFavorita } }
+
     Spacer(modifier = Modifier.height(12.dp))
 
     // UserHeader
@@ -56,7 +69,7 @@ fun ProfileScreen() {
             )
             Spacer(modifier = Modifier.height(7.dp))
             Text(
-                text = stringResource(id = R.string.user_stadistics),
+                text = stringResource(id = R.string.user_stadistics, nVistas, nFavoritas),
                 style = MaterialTheme.typography.bodySmall
             )
         }
@@ -64,6 +77,7 @@ fun ProfileScreen() {
     }
 
     // StaticMovie
+    /*
     Row(
         modifier = Modifier.fillMaxWidth().padding(19.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -79,4 +93,5 @@ fun ProfileScreen() {
             Text(text = stringResource(id = R.string.movie_details), style = MaterialTheme.typography.bodySmall)
         }
     }
+    */
 }

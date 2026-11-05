@@ -24,7 +24,7 @@ import com.example.damflix.R
 import com.example.damflix.viewmodel.MovieViewModel
 
 @Composable
-fun RegisterMovieForm(
+fun MovieForm(
     viewModel: MovieViewModel,
     onPeliculaGuardada: () -> Unit = {}
 ) {
