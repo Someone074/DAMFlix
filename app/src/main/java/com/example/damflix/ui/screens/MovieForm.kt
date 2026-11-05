@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.OutlinedTextField
@@ -19,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.damflix.R
 import com.example.damflix.viewmodel.MovieViewModel
@@ -35,9 +37,9 @@ fun MovieForm(
     var year by remember { mutableStateOf("") }
     var esVista by remember { mutableStateOf(false) }
     
-    CampoEntrada(titulo, { titulo = it }, R.string.title_info)
-    CampoEntrada(director, { director = it }, R.string.director_info)
-    CampoEntrada(year, { year = it }, R.string.year_release_info)
+    CampoEntrada(titulo, { titulo = it }, R.string.title_info, KeyboardType.Text)
+    CampoEntrada(director, { director = it }, R.string.director_info, KeyboardType.Text)
+    CampoEntrada(year, { year = it }, R.string.year_release_info, KeyboardType.Number)
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -50,7 +52,7 @@ fun MovieForm(
     Column(  // Tamaño normal pero centrado
         modifier = Modifier
             .fillMaxSize()
-            .padding(20.dp)
+            .padding(start = 20.dp, top = 20.dp, end = 20.dp, bottom = 100.dp)
     ) {
         Spacer(modifier = Modifier.weight(1f))
         
@@ -78,12 +80,13 @@ fun MovieForm(
 }
 
 @Composable
-fun CampoEntrada(valor: String, onCambio: (String) -> Unit, etiqueta: Int) {
+fun CampoEntrada(valor: String, onChange: (String) -> Unit, etiqueta: Int, keyboardType: KeyboardType) {
     OutlinedTextField(
         value = valor,
-        onValueChange = onCambio,
+        onValueChange = onChange,
         label = { Text(text = stringResource(id = etiqueta)) },
         singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         modifier = Modifier.fillMaxWidth().padding(start = 19.dp, top = 8.dp, end = 19.dp, bottom = 8.dp)
     )
 }

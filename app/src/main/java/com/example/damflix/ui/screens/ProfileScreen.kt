@@ -41,27 +41,17 @@ fun ProfileScreen(viewModel: MovieViewModel) {
     // Cuenta las películas favoritas
     val nFavoritas = remember(peliculas) { peliculas.count { it.esFavorita } }
 
-    Spacer(modifier = Modifier.height(12.dp))
-
     // UserHeader
     Row(
-        modifier = Modifier.fillMaxWidth().padding(16.dp),
+        modifier = Modifier.fillMaxWidth().padding(start = 40.dp, top = 40.dp, end = 40.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.user_avatar),
-            contentDescription = stringResource(R.string.avatar_desc),
-            modifier = Modifier
-                .size(90.dp)
-                .clip(CircleShape) // Avatar circular
-                .border(2.dp, MaterialTheme.colorScheme.primary, CircleShape)
-        )
-        Spacer(modifier = Modifier.width(16.dp))
         Column {
             Text(
                 text = stringResource(id = R.string.user_name_label),
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineMedium
             )
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = stringResource(id = R.string.user_rol),
                 style = MaterialTheme.typography.titleSmall,
@@ -73,7 +63,14 @@ fun ProfileScreen(viewModel: MovieViewModel) {
                 style = MaterialTheme.typography.bodySmall
             )
         }
-
+        Spacer(modifier = Modifier.weight(1f))
+        Image(
+            painter = painterResource(id = R.drawable.user_avatar),
+            contentDescription = stringResource(R.string.avatar_desc),
+            modifier = Modifier
+                .size(115.dp)
+                .clip(CircleShape) // Avatar circular
+        )
     }
 
     // StaticMovie

@@ -2,6 +2,7 @@
     <!-- Textos simples -->
     <string name="app_name">DAMFlix</string>
     <string name="btn_accept">Aceptar</string>
+    <string name="btn_menu">Abrir Menú</string>
 
     <!-- ProfileScreen -->
     <string name="avatar_desc">Avatar del usuario</string>
