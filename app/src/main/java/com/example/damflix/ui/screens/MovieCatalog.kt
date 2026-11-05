@@ -25,7 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.damflix.R
-import com.example.damflix.ui.viewmodel.MovieViewModel
+import com.example.damflix.viewmodel.MovieViewModel
 
 @Composable
 fun MovieCatalog(viewModel: MovieViewModel) {

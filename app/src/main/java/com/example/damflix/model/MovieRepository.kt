@@ -1,7 +1,6 @@
-package com.example.damflix.data
+package com.example.damflix.model
 
 import android.content.ContentValues
-import com.example.damflix.model.Pelicula
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

@@ -1,8 +1,8 @@
-package com.example.damflix.ui.viewmodel
+package com.example.damflix.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.damflix.data.MovieRepository
+import com.example.damflix.model.MovieRepository
 import com.example.damflix.model.Pelicula
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
