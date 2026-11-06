@@ -83,7 +83,11 @@ fun AppDAMFlixMainScreen(viewModel: MovieViewModel) {
     val opcionesMenu = listOf(Ruta.Inicio, Ruta.Listado, Ruta.Formulario)
 
     val peliculas by viewModel.listaPeliculas.collectAsStateWithLifecycle()
+
+    // Nº de películas vistas
     val nVistas = remember(peliculas) { peliculas.count { it.esVista } }
+
+    // Nº de películas favoritas
     val nFavoritas = remember(peliculas) { peliculas.count { it.esFavorita } }
 
     ModalNavigationDrawer(
@@ -122,6 +126,7 @@ fun AppDAMFlixMainScreen(viewModel: MovieViewModel) {
                         )
                         Spacer(modifier = Modifier.height(7.dp))
                         Text(
+                            // Añadiendo valores dinámicos (películas vistas y favoritas)
                             text = stringResource(id = R.string.user_stadistics, nVistas, nFavoritas),
                             style = MaterialTheme.typography.bodySmall
                         )
@@ -177,9 +182,8 @@ fun AppDAMFlixMainScreen(viewModel: MovieViewModel) {
                         Igualmente, dejé el código del botón como lo pedían los requisitos aquí:
 
                         navigationIcon = {
-                            // Botón de hamburguesa para abrir el Drawer
                             IconButton(onClick = { coroutineScope.launch { drawerState.open() } }) {
-                                Icon(Icons.Default.Menu, contentDescription = "Abrir Menú")
+                                Icon(Icons.Default.Menu, contentDescription = "Abrir Menú") // Aquí se quitaría el texto harcodeado
                             }
                         },
                      */
