@@ -4,14 +4,19 @@
     <string name="btn_accept">Aceptar</string>
     <string name="btn_menu">Abrir Menú</string>
 
-    <!-- ProfileScreen -->
+    <!-- ProfileUser -->
     <string name="avatar_desc">Avatar del usuario</string>
     <string name="user_name_label">Miguel</string>
     <string name="user_rol">Crítico de Cine</string>
     <string name="user_stadistics">%1$d Vistas • %2$d Favoritas</string>
-    <string name="desc_poster">Póster de la película Inception</string>
-    <string name="movie_name">Origen (Inception)</string>
-    <string name="movie_details">Christopher Nolan • 2010</string>
+
+    <!-- StartScreen -->
+    <string name="desc_inception">Origen (Inception)</string>
+    <string name="desc_alicia">Alicia y El País de las Maravillas</string>
+    <string name="desc_carrie">Carrie</string>
+    <string name="desc_harrypotter">Harry Potter y el Prisionero de Azkaban</string>
+    <string name="desc_yourname">Your Name (Kimi No Nawa)</string>
+    <string name="desc_cuartafase">La Cuarta Fase</string>
 
     <!-- MovieForm -->
     <string name="title_info">Título de la Película</string>
